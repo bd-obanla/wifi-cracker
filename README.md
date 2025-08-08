@@ -14,11 +14,26 @@ A Python script to scan WiFi networks, attempt to crack passwords, and connect a
 
 ## Installation
 ```bash
+# Update the package list
 sudo apt update
-sudo apt install aircrack-ng network-manager python3
 
-## Usage
-- sudo python3 wifi-cracker.py
+# Install required tools and Git
+sudo apt install aircrack-ng network-manager python3 git -y
 
-## Legal Warning
-- Use this tool only on networks you own or have permission to test. Unauthorized use is illegal.
+# Clone the repository
+git clone https://github.com/bd-obanla/wifi-cracker.git
+
+# Navigate to the project directory
+cd wifi-cracker
+
+# Make the script executable
+chmod +x wifi_cracker.py
+
+# Check your wireless interface (replace wlan0 with your interface if different)
+iwconfig
+
+# Start monitor mode on your wireless interface (replace wlan0 with your interface)
+sudo airmon-ng start wlan0
+
+# Run the script (use sudo for network privileges)
+sudo python3 wifi_cracker.py
